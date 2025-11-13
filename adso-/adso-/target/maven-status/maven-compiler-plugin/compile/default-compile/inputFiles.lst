@@ -1,0 +1,17 @@
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\AdsoApplication.java
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\config\ApplicationConfig.java
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\config\JwtAuthenticationFilter.java
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\config\SecurityConfig.java
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\controller\AuthController.java
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\controller\ProductController.java
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\dto\AuthResponse.java
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\dto\LoginRequest.java
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\dto\RegisterRequest.java
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\model\Product.java
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\model\Role.java
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\model\User.java
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\repository\ProductRepository.java
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\repository\UserRepository.java
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\service\AuthService.java
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\service\JwtService.java
+C:\Users\Aprendiz\Downloads\adso-\adso-\src\main\java\com\example\adso\service\ProductService.java
