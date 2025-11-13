@@ -87,15 +87,3 @@ Para desplegar esta aplicación en Azure, consulta la guía detallada en [AZURE_
             └── resources/         # Configuración
 ```
 
-## Tecnologías
-
-- Java 17
-- Spring Boot 3.5.7
-- Spring Security
-- JWT (jsonwebtoken)
-- Maven
-- Docker
-
-## Licencia
-
-MIT
