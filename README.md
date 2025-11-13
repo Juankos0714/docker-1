@@ -25,6 +25,16 @@ docker run -p 3005:3005 adso-app
 
 La aplicación estará disponible en: `http://localhost:3005`
 
+### Subir a Docker Hub
+
+```bash
+# Usando el script automatizado
+./docker-hub-push.sh TU_USUARIO 1.0.0
+
+# Ver guía completa
+# Ver DOCKER_HUB.md para más detalles
+```
+
 ### Ejecutar con Maven (desarrollo)
 
 ```bash
@@ -32,14 +42,22 @@ cd adso-/adso-
 ./mvnw spring-boot:run
 ```
 
-## Despliegue en Azure
+## Despliegue
 
+### Docker Hub
+Sube tu imagen a Docker Hub para facilitar el despliegue:
+- 📘 Guía completa: [DOCKER_HUB.md](./DOCKER_HUB.md)
+- 🤖 CI/CD: GitHub Actions configurado automáticamente
+- 💰 Gratis: Sin costo usando tier gratuito
+
+### Azure
 Para desplegar esta aplicación en Azure, consulta la guía detallada en [AZURE_DEPLOYMENT.md](./AZURE_DEPLOYMENT.md).
 
 **Opciones de despliegue:**
 - ☁️ Azure Container Instances (ACI) - Más simple
 - 🌐 Azure App Service - Recomendado
 - ⚙️ Azure Kubernetes Service (AKS) - Para producción
+- 🐳 Desde Docker Hub - Más económico (sin ACR)
 
 ## API Endpoints
 
@@ -52,16 +70,20 @@ Para desplegar esta aplicación en Azure, consulta la guía detallada en [AZURE_
 
 ```
 .
-├── Dockerfile                 # Configuración Docker multi-stage
-├── docker-compose.yml         # Configuración Docker Compose
-├── .dockerignore             # Archivos excluidos de Docker
-├── AZURE_DEPLOYMENT.md       # Guía de despliegue en Azure
-└── adso-/adso-/              # Código fuente Spring Boot
-    ├── pom.xml               # Dependencias Maven
+├── Dockerfile                     # Configuración Docker multi-stage
+├── docker-compose.yml             # Configuración Docker Compose
+├── .dockerignore                  # Archivos excluidos de Docker
+├── docker-hub-push.sh             # Script para subir a Docker Hub
+├── AZURE_DEPLOYMENT.md            # Guía de despliegue en Azure
+├── DOCKER_HUB.md                  # Guía de Docker Hub
+├── .github/workflows/
+│   └── docker-publish.yml         # CI/CD con GitHub Actions
+└── adso-/adso-/                   # Código fuente Spring Boot
+    ├── pom.xml                    # Dependencias Maven
     └── src/
         └── main/
-            ├── java/         # Código Java
-            └── resources/    # Configuración
+            ├── java/              # Código Java
+            └── resources/         # Configuración
 ```
 
 ## Tecnologías

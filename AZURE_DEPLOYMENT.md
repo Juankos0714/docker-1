@@ -8,6 +8,29 @@ Esta guía te ayudará a desplegar la aplicación ADSO en Azure usando diferente
 - Docker instalado localmente
 - Una suscripción activa de Azure
 
+## 💡 Alternativa: Usar Docker Hub (Más Económico)
+
+**RECOMENDADO**: En lugar de Azure Container Registry (ACR), puedes usar Docker Hub (gratis):
+
+1. Sube tu imagen a Docker Hub: `./docker-hub-push.sh TU_USUARIO`
+2. Usa la imagen directamente: `TU_USUARIO/adso-app:latest`
+3. Ahorra ~$5/mes del costo de ACR
+
+Ver guía completa en [DOCKER_HUB.md](./DOCKER_HUB.md)
+
+**Ejemplo con Docker Hub:**
+```bash
+# Despliegue directo desde Docker Hub
+az container create \
+  --resource-group adso-rg \
+  --name adso-app \
+  --image TU_USUARIO/adso-app:latest \
+  --dns-name-label adso-app-unique \
+  --ports 3005
+```
+
+---
+
 ## Opción 1: Azure Container Instances (ACI) - Más Simple
 
 ### Paso 1: Login en Azure
