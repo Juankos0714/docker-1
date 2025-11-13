@@ -1,16 +1,3 @@
-# ADSO Spring Boot Application
-
-Aplicación Spring Boot con autenticación JWT y gestión de productos, lista para desplegar en Azure.
-
-## Características
-
-- 🔐 Autenticación JWT
-- 👥 Gestión de usuarios
-- 📦 API REST para productos
-- 🐳 Dockerizado y listo para Azure
-- 🚀 Build optimizado con multi-stage Docker
-
-## Inicio Rápido
 
 ### Ejecutar con Docker
 
