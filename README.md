@@ -47,7 +47,8 @@ cd adso-/adso-
 ### Docker Hub
 Sube tu imagen a Docker Hub para facilitar el despliegue:
 - 📘 Guía completa: [DOCKER_HUB.md](./DOCKER_HUB.md)
-- 🤖 CI/CD: GitHub Actions configurado automáticamente
+- 🤖 CI/CD: GitHub Actions pre-configurado (funciona sin secrets, construye sin push)
+- 🔐 Configura secrets para push automático: `DOCKER_USERNAME` y `DOCKER_PASSWORD`
 - 💰 Gratis: Sin costo usando tier gratuito
 
 ### Azure

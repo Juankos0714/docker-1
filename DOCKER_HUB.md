@@ -62,23 +62,46 @@ docker push TU_USUARIO/adso-app:1.0.0
 ## Opción 3: Automatización con GitHub Actions (CI/CD)
 
 Ya está configurado un workflow en `.github/workflows/docker-publish.yml` que automáticamente:
-- Construye la imagen en cada push a main/master
-- Sube la imagen a Docker Hub
-- Crea tags automáticos basados en versiones
+- ✅ **Sin credenciales**: Construye y valida la imagen (sin push)
+- ✅ **Con credenciales**: Construye, sube a Docker Hub y crea tags automáticos
 
-### Configurar Secrets en GitHub
+### Configurar Secrets en GitHub (Requerido para Push)
+
+**IMPORTANTE**: El workflow funciona sin secrets, pero solo construirá la imagen. Para subir a Docker Hub, configura:
 
 1. Ve a tu repositorio en GitHub
-2. Settings → Secrets and variables → Actions
-3. Agrega estos secrets:
-   - `DOCKER_USERNAME`: Tu usuario de Docker Hub
-   - `DOCKER_PASSWORD`: Tu contraseña o token de Docker Hub
+2. **Settings** → **Secrets and variables** → **Actions**
+3. Click en **New repository secret**
+4. Agrega estos secrets:
+   - **Name**: `DOCKER_USERNAME` → **Value**: Tu usuario de Docker Hub
+   - **Name**: `DOCKER_PASSWORD` → **Value**: Tu contraseña o token de Docker Hub
+
+#### Crear un Access Token (Recomendado)
+Es más seguro usar un token que tu contraseña:
+1. Ve a [Docker Hub](https://hub.docker.com/) → Account Settings → Security
+2. Click en **New Access Token**
+3. Dale un nombre descriptivo (ej: "GitHub Actions")
+4. Copia el token y úsalo como `DOCKER_PASSWORD`
+
+### Comportamiento del Workflow
+
+**Sin secrets configurados:**
+- ✅ Construye la imagen para validar el Dockerfile
+- ℹ️ Muestra mensaje sobre cómo configurar secrets
+- ❌ NO intenta subir a Docker Hub (evita errores)
+
+**Con secrets configurados:**
+- ✅ Construye la imagen
+- ✅ Sube a Docker Hub automáticamente
+- ✅ Crea tags basados en la rama/versión
+- ✅ Soporte multi-arquitectura (amd64, arm64)
 
 ### Triggers del Workflow
 
 El workflow se ejecuta automáticamente cuando:
-- Haces push a `main` o `master`
+- Haces push a `main` o `master` (solo con secrets: sube a Docker Hub)
 - Creas un tag con formato `v*.*.*` (ejemplo: `v1.0.0`)
+- Abres un Pull Request (solo construye, no sube)
 - Manualmente desde GitHub Actions
 
 ### Crear un release con tag:
@@ -86,6 +109,12 @@ El workflow se ejecuta automáticamente cuando:
 git tag -a v1.0.0 -m "Release version 1.0.0"
 git push origin v1.0.0
 ```
+
+Esto automáticamente creará las siguientes imágenes en Docker Hub:
+- `tu-usuario/adso-app:1.0.0`
+- `tu-usuario/adso-app:1.0`
+- `tu-usuario/adso-app:1`
+- `tu-usuario/adso-app:latest`
 
 ---
 
