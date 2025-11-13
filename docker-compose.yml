@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  adso-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: adso-app
+    ports:
+      - "3005:3005"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - JAVA_OPTS=-Xmx512m -Xms256m
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3005/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - adso-network
+
+networks:
+  adso-network:
+    driver: bridge
